@@ -2,6 +2,7 @@
 
 ## Objetivo
 O objetivo dessa API é apenas educacional para a realização de trabalho de faculdade. Trata-se de uma API simples com endpoints relacionados a calculos matemáticos.
+Alteração no readme!
 
 ## Endpoints Disponíveis
 - `GET /add?a=10&b=5` → retorna `15`
