@@ -29,7 +29,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Build com Maven
-        working-directory: tp1/tp1
+        working-directory: tp1
         run: mvn clean install
 
   test:
@@ -46,5 +46,5 @@ jobs:
           distribution: 'temurin'
 
       - name: Executar testes
-        working-directory: tp1/tp1
+        working-directory: tp1
         run: mvn test
