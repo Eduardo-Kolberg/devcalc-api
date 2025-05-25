@@ -33,4 +33,9 @@ public class CalculatorController {
     public double divide(@RequestParam double a, @RequestParam double b) {
         return calculatorService.divide(a, b);
     }
+
+    @GetMapping("/hello")
+    public String hello(@RequestParam double a, @RequestParam double b) {
+        return "Hello World!";
+    }
 }
