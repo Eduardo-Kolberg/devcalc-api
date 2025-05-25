@@ -5,7 +5,7 @@ on:
 
 jobs:
   lint:
-    name: Verificar Lint
+    name: Verificar lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
@@ -17,9 +17,9 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Executar Linter
+      - name: Executar PMD
         working-directory: tp1
-        run: mvn checkstyle:check
+        run: mvn pmd:pmd
 
   test:
     name: Executar testes automatizados
