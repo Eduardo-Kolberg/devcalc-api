@@ -1,6 +1,6 @@
 # Calculator API
 
-![CI Pipeline](https://github.com/SEU_USUARIO/SEU_REPOSITORIO/actions/workflows/ci.yml/badge.svg)
+![CI Pipeline](https://github.com/Eduardo-Kolberg/devcalc-api/actions/workflows/ci.yml/badge.svg)
 
 ## Objetivo
 O objetivo dessa API é apenas educacional para a realização de trabalho de faculdade. Trata-se de uma API simples com endpoints relacionados a calculos matemáticos.
