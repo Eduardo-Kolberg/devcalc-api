@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
   pull_request:
     paths:
       - 'tp1/src/**'
@@ -61,13 +62,14 @@ jobs:
         working-directory: tp1
         run: mvn package
 
-  deploy:
+  deploy-dev:
+    if: github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     needs: build
+    environment:
+      name: dev
     steps:
-      - name: Mensagem de Deploy
-        run: echo "Deploy realizado com sucesso"
-
+      -
       - name: Exibir variáveis de configuração
         run: |
           echo "Modo da aplicação: ${{ vars.APP_MODE }}"
@@ -85,3 +87,38 @@ jobs:
         run: |
           echo "Iniciando autenticação..."
           echo "Autenticação ${{ secrets.PROD_TOKEN }} concluída com sucesso"
+
+      - name: Mostrando Stage
+        run: |
+          echo "Variavel de ambiente STAGE de dev: ${{ vars.STAGE }}"
+
+      - name: Mensagem de Deploy
+        run: echo "Deploy realizado em dev com sucesso"
+
+  deploy-prod:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: prod
+    steps:
+      - name: Exibir variáveis de configuração
+        run: |
+          echo "Modo da aplicação: ${{ vars.APP_MODE }}"
+          echo "E-mail de suporte: ${{ vars.SUPPORT_EMAIL }}"
+
+      - name: Comportamento baseado no modo da aplicação
+        run: |
+          if [ "${{ vars.APP_MODE }}" = "prod" ]; then
+            echo "Executando passos de prod..."
+          else
+            echo "Executando passos de dev..."
+          fi
+
+      - name: autenticação de deploy
+        run: |
+          echo "Iniciando autenticação..."
+          echo "Autenticação ${{ secrets.PROD_TOKEN1 }} concluída com sucesso"
+
+      - name: Mensagem de Deploy
+        run: echo "Deploy realizado em prod com sucesso"
