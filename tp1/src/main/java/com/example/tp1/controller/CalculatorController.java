@@ -38,4 +38,9 @@ public class CalculatorController {
     public String hello(@RequestParam double a, @RequestParam double b) {
         return "Hello World!";
     }
+
+    @GetMapping("/square")
+    public double square(@RequestParam double number) {
+        return calculatorService.square(number);
+    }
 }

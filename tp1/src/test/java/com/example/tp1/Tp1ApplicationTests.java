@@ -37,4 +37,17 @@ class Tp1ApplicationTests {
 		assertThrows(IllegalArgumentException.class, () -> service.divide(10, 0));
 	}
 
+	@Test
+	public void testSquare() {
+		assertEquals(4, service.square(16));
+		assertEquals(3, service.square(9));
+		assertEquals(0, service.square(0));
+		assertEquals(5, service.square(25));
+	}
+
+	@Test
+	public void testSquareWithNegativeNumber() {
+		assertThrows(IllegalArgumentException.class, () -> service.square(-16));
+	}
+
 }
