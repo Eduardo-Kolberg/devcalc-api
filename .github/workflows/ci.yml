@@ -69,7 +69,7 @@ jobs:
     environment:
       name: dev
     steps:
-      -
+
       - name: Exibir variáveis de configuração
         run: |
           echo "Modo da aplicação: ${{ vars.APP_MODE }}"
